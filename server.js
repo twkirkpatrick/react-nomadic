@@ -12,6 +12,8 @@ app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 
 //*Define routes here
+app.use("/api/locations", require("./routes/locations"));
+app.use("/api/visits", require("./routes/visits"));
 
 //* Serve static assets in production
 if (process.env.NODE_ENV === "production") {
