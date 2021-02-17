@@ -1,9 +1,9 @@
-const db = require("../models");
+const Location = require("../models/Location");
 
 module.exports = {
   getLocations: async (req, res) => {
     try {
-      const locations = await db.Location.findAll({});
+      const locations = await db.Location.find({}).populate("visits");
       res.json(locations);
     } catch (err) {
       console.error(err.message);
@@ -12,13 +12,12 @@ module.exports = {
   },
 
   addLocation: async (req, res) => {
-    const { city, state, visits } = req.body;
+    const { city, state } = req.body;
 
     try {
       const newLocation = new Location({
         city,
-        state,
-        visits
+        state
       });
 
       const location = await newLocation.save();
