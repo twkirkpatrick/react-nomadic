@@ -7,6 +7,7 @@ const VisitSchema = mongoose.Schema({
   },
   visitDate: {
     type: Date,
+    default: Date.now,
     required: true
   },
   activities: [],
