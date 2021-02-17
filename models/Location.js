@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const LocationSchema = mongoose.Schema({
   city: {
@@ -12,9 +12,9 @@ const LocationSchema = mongoose.Schema({
   visits: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Visit"
+      ref: 'Visit'
     }
   ]
 });
 
-module.exports = mongoose.model("Location", LocationSchema);
+module.exports = mongoose.model('Location', LocationSchema);
