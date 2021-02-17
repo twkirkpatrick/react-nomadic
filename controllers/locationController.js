@@ -1,9 +1,10 @@
 const Location = require("../models/Location");
+const Visit = require("../models/Visit");
 
 module.exports = {
   getLocations: async (req, res) => {
     try {
-      const locations = await db.Location.find({}).populate("visits");
+      const locations = await Location.find({}).populate("visits");
       res.json(locations);
     } catch (err) {
       console.error(err.message);
