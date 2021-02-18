@@ -1,7 +1,7 @@
 //* Dependencies
-const express = require("express");
-const connectDB = require("./config/db");
-const path = require("path");
+const express = require('express');
+const connectDB = require('./config/db');
+const path = require('path');
 const app = express();
 
 //* Connect to database
@@ -12,16 +12,16 @@ app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 
 //*Define routes here
-app.use("/api/locations", require("./routes/locations"));
-app.use("/api/visits", require("./routes/visits"));
+app.use('/api/locations', require('./routes/locations'));
+app.use('/api/visits', require('./routes/visits'));
 
 //* Serve static assets in production
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   //* Set static folder
-  app.use(express.static("client/build"));
+  app.use(express.static('client/build'));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   );
 }
 
