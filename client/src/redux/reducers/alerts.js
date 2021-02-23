@@ -1,4 +1,4 @@
-import { SET_ALERT, REMOVE_ALERT } from '../actions';
+import { SET_ALERT, REMOVE_ALERT } from "../actions/types";
 
 // based on the action that is dispatched, the reducer will change the store's globalized state
 const alertReducer = (state = [], action) => {

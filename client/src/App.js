@@ -1,23 +1,17 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import { getLocations } from "./redux/actions/locationActions";
 
-function App() {
+function App({ getLocations }) {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={getLocations}>get locations</button>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  location: state.location
+});
+
+export default connect(mapStateToProps, { getLocations })(App);

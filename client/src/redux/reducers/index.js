@@ -1,9 +1,11 @@
-import alertReducer from './alerts';
+import alertReducer from "./alerts";
+import locationReducer from "./locations";
 
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
-  alerts: alertReducer
+  alert: alertReducer,
+  location: locationReducer
 });
 
 export default allReducers;
