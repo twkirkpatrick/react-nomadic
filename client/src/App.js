@@ -6,7 +6,7 @@ import Map from "./components/layout/Map";
 import { connect } from "react-redux";
 import { getLocations } from "./redux/actions/locationActions";
 
-function App() {
+function App({ getLocations }) {
   return (
     <div className="App">
       <Navigation />

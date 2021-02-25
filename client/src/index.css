@@ -6,3 +6,8 @@
   width: 75vw;
   height: 90vh;
 }
+
+.location-icon {
+  font-size: 20px;
+  color: red;
+}
