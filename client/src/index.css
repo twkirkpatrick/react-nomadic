@@ -3,8 +3,8 @@
 }
 
 .map {
-  width: 100vw;
-  height: 90vh;
+  width: 75vw;
+  height: 100vh;
 }
 
 .location-icon {
@@ -14,4 +14,10 @@
 
 .location-icon:hover {
   transform: scale(3);
+}
+
+@media only screen and (max-width: 991px) {
+  .map {
+    width: 100vw;
+  }
 }
