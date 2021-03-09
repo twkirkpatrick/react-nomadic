@@ -7,13 +7,8 @@ import { getLocations } from "../../redux/actions/locationActions";
 import LocationMarker from "./LocationMarker";
 require("dotenv").config();
 
-const Map = ({ center, zoom, getLocations, location: { locations } }) => {
+const Map = ({ center, zoom, location: { locations } }) => {
   const [coordinates, setCoordinates] = useState([]);
-
-  useEffect(() => {
-    getLocations();
-    //eslint-disable-next-line
-  }, []);
 
   useEffect(() => {
     findCoordinates();
@@ -44,7 +39,11 @@ const Map = ({ center, zoom, getLocations, location: { locations } }) => {
       >
         {coordinates.length > 0 &&
           coordinates.map((coordinate) => (
-            <LocationMarker lat={coordinate.lat} lng={coordinate.lng} />
+            <LocationMarker
+              onClick={console.log("hi")}
+              lat={coordinate.lat}
+              lng={coordinate.lng}
+            />
           ))}
       </GoogleMapReact>
     </div>
@@ -63,4 +62,4 @@ Map.defaultProps = {
   zoom: 2
 };
 
-export default connect(mapStateToProps, { getLocations })(Map);
+export default connect(mapStateToProps)(Map);

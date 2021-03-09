@@ -3,11 +3,15 @@
 }
 
 .map {
-  width: 75vw;
+  width: 100vw;
   height: 90vh;
 }
 
 .location-icon {
   font-size: 20px;
   color: red;
+}
+
+.location-icon:hover {
+  transform: scale(3);
 }
