@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import Geocode from "react-geocode";
+import { setCurrent } from "../../redux/actions/locationActions";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
-require("dotenv").config();
 
-const Map = ({ center, zoom, location: { locations } }) => {
-  /* const [locationInfo, setLocationInfo] = useState({}); */
-
+const Map = ({ center, zoom, location: { locations }, setCurrent }) => {
   const markers = locations.map((location) => (
-    <LocationMarker lat={location.latitude} lng={location.longitude} />
+    <LocationMarker
+      lat={location.latitude}
+      lng={location.longitude}
+      onClick={() => setCurrent(location)}
+    />
   ));
 
   return (
@@ -37,4 +38,4 @@ Map.defaultProps = {
   zoom: 2
 };
 
-export default connect(mapStateToProps)(Map);
+export default connect(mapStateToProps, { setCurrent })(Map);
