@@ -1,39 +1,17 @@
-import React, { useEffect, useState } from "react";
-/* import { useSelector } from "react-redux"; */
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import Geocode from "react-geocode";
+import { setCurrent } from "../../redux/actions/locationActions";
 import GoogleMapReact from "google-map-react";
-import { getLocations } from "../../redux/actions/locationActions";
 import LocationMarker from "./LocationMarker";
-require("dotenv").config();
 
-const Map = ({ center, zoom, getLocations, location: { locations } }) => {
-  const [coordinates, setCoordinates] = useState([]);
-
-  useEffect(() => {
-    getLocations();
-    //eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    findCoordinates();
-  }, [locations]);
-
-  const findCoordinates = async () => {
-    const addresses = await locations.map((location) => {
-      return `${location.city},${location.state}`;
-    });
-
-    await addresses.forEach((address) => {
-      Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY);
-      Geocode.fromAddress(address).then((res) => {
-        const { lat, lng } = res.results[0].geometry.location;
-        setCoordinates((prev) => [...prev, { lat: lat, lng: lng }]);
-      });
-    });
-
-    console.log(coordinates);
-  };
+const Map = ({ center, zoom, location: { locations }, setCurrent }) => {
+  const markers = locations.map((location) => (
+    <LocationMarker
+      lat={location.latitude}
+      lng={location.longitude}
+      onClick={() => setCurrent(location)}
+    />
+  ));
 
   return (
     <div className="map">
@@ -42,10 +20,7 @@ const Map = ({ center, zoom, getLocations, location: { locations } }) => {
         defaultCenter={center}
         defaultZoom={zoom}
       >
-        {coordinates.length > 0 &&
-          coordinates.map((coordinate) => (
-            <LocationMarker lat={coordinate.lat} lng={coordinate.lng} />
-          ))}
+        {markers}
       </GoogleMapReact>
     </div>
   );
@@ -63,4 +38,4 @@ Map.defaultProps = {
   zoom: 2
 };
 
-export default connect(mapStateToProps, { getLocations })(Map);
+export default connect(mapStateToProps, { setCurrent })(Map);

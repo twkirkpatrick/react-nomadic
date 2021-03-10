@@ -1,6 +1,7 @@
 import {
   ADD_LOCATION,
   REMOVE_LOCATION,
+  SET_CURRENT,
   GET_LOCATIONS,
   SET_LOADING
 } from "./types";
@@ -17,6 +18,13 @@ export const getLocations = () => async (dispatch) => {
   } catch (err) {
     console.error("something went wrong");
   }
+};
+
+export const setCurrent = (location) => {
+  return {
+    type: SET_CURRENT,
+    payload: location
+  };
 };
 
 export const setLoading = () => {

@@ -12,6 +12,7 @@ export const SET_LOADING = "SET_LOADING";
 export const ADD_LOCATION = "ADD_LOCATION";
 export const REMOVE_LOCATION = "REMOVE_LOCATION";
 export const GET_LOCATIONS = "GET_LOCATIONS";
+export const SET_CURRENT = "SET_CURRENT";
 
 // auth action types
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
