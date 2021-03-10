@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-/* import { useSelector } from "react-redux"; */
 import { connect } from "react-redux";
 import Geocode from "react-geocode";
 import GoogleMapReact from "google-map-react";
-import { getLocations } from "../../redux/actions/locationActions";
 import LocationMarker from "./LocationMarker";
 require("dotenv").config();
 
@@ -13,6 +11,10 @@ const Map = ({ center, zoom, location: { locations } }) => {
   useEffect(() => {
     findCoordinates();
   }, [locations]);
+
+  const onClick = () => {
+    console.log("hi");
+  };
 
   const findCoordinates = async () => {
     const addresses = await locations.map((location) => {
@@ -26,8 +28,6 @@ const Map = ({ center, zoom, location: { locations } }) => {
         setCoordinates((prev) => [...prev, { lat: lat, lng: lng }]);
       });
     });
-
-    console.log(coordinates);
   };
 
   return (
@@ -40,9 +40,9 @@ const Map = ({ center, zoom, location: { locations } }) => {
         {coordinates.length > 0 &&
           coordinates.map((coordinate) => (
             <LocationMarker
-              onClick={console.log("hi")}
               lat={coordinate.lat}
               lng={coordinate.lng}
+              onClick={onClick}
             />
           ))}
       </GoogleMapReact>
