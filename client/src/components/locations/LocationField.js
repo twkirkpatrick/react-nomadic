@@ -11,7 +11,7 @@ const LocationField = ({ current }) => {
           textAlign: "center"
         }}
       >
-        {current.city}
+        {current.city}, {current.state}
       </div>
     );
   } else {
