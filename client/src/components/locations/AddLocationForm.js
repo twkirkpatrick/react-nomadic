@@ -14,7 +14,7 @@ const AddLocationForm = ({ addLocation, closeLocationModal }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (city === "" || state === "") {
-      console.log("please fill out form");
+      alert("please fill out form");
     } else {
       addLocation({ city, state });
       closeLocationModal();
