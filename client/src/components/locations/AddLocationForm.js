@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const AddLocationForm = () => {
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   return (
     <Form>
       <Form.Group>
@@ -12,7 +14,7 @@ const AddLocationForm = () => {
         <Form.Label>State</Form.Label>
         <Form.Control type="text" placeholder="State" />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={onSubmit}>
         Submit
       </Button>
     </Form>

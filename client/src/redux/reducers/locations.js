@@ -28,12 +28,17 @@ const locationReducer = (state = initialState, action) => {
         locations: action.payload,
         loading: false
       };
+    case ADD_LOCATION:
+      return {
+        ...state,
+        locations: [...state.locations, action.payload],
+        loading: false
+      };
     case SET_CURRENT:
       return {
         ...state,
         current: action.payload
       };
-
     case OPEN_LOCATION_MODAL:
       return {
         ...state,
@@ -44,10 +49,6 @@ const locationReducer = (state = initialState, action) => {
         ...state,
         locationModalOpen: false
       };
-    case ADD_LOCATION:
-      return [...state, action.payload]; // need to spread the new data into the state array
-    case REMOVE_LOCATION:
-      return state.filter((location) => location.id !== action.payload);
 
     default:
       return state;
