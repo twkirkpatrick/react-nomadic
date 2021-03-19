@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 const AddLocationForm = () => {
   return (
@@ -12,6 +12,9 @@ const AddLocationForm = () => {
         <Form.Label>State</Form.Label>
         <Form.Control type="text" placeholder="State" />
       </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
     </Form>
   );
 };

@@ -19,9 +19,6 @@ const AddLocationModal = ({ locationModalOpen, closeLocationModal }) => {
       <Modal.Body>
         <AddLocationForm />
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={() => closeLocationModal()}>Close</Button>
-      </Modal.Footer>
     </Modal>
   );
 };
