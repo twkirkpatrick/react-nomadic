@@ -4,14 +4,15 @@ import {
   GET_LOCATIONS,
   SET_LOADING,
   SET_CURRENT,
-  OPEN_LOCATION_MODAL
+  OPEN_LOCATION_MODAL,
+  CLOSE_LOCATION_MODAL
 } from "../actions/types";
 
 const initialState = {
   locations: [],
   current: null,
   loading: null,
-  modalOpen: false
+  locationModalOpen: false
 };
 
 const locationReducer = (state = initialState, action) => {
