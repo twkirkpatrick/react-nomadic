@@ -1,9 +1,11 @@
 import React from "react";
+import { Icon } from "@iconify/react";
+import globeAdd24Regular from "@iconify-icons/fluent/globe-add-24-regular";
 
 const AddLocationBtn = () => {
   return (
     <div>
-      <button className="location-btn">Add Location</button>
+      <Icon icon={globeAdd24Regular} className="location-btn" />
     </div>
   );
 };

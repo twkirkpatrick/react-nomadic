@@ -5,8 +5,17 @@
 .location-btn {
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  left: 2.5rem;
   z-index: 3;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  color: rgb(114, 12, 197);
+}
+
+.location-btn:hover {
+  color: rgb(114, 12, 197);
+  transform: scale(1.2) !important;
 }
 
 .map {
