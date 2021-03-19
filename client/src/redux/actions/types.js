@@ -8,6 +8,10 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 //loading
 export const SET_LOADING = "SET_LOADING";
 
+//modals
+export const OPEN_LOCATION_MODAL = "OPEN_LOCATION_MODAL";
+export const CLOSE_LOCATION_MODAL = "CLOSE_LOCATION_MODAL";
+
 // locations
 export const ADD_LOCATION = "ADD_LOCATION";
 export const REMOVE_LOCATION = "REMOVE_LOCATION";

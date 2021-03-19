@@ -1,6 +1,8 @@
 import {
   ADD_LOCATION,
   REMOVE_LOCATION,
+  OPEN_LOCATION_MODAL,
+  CLOSE_LOCATION_MODAL,
   SET_CURRENT,
   GET_LOCATIONS,
   SET_LOADING
@@ -24,6 +26,18 @@ export const setCurrent = (location) => {
   return {
     type: SET_CURRENT,
     payload: location
+  };
+};
+
+export const openLocationModal = () => {
+  return {
+    type: OPEN_LOCATION_MODAL
+  };
+};
+
+export const closeLocationModal = () => {
+  return {
+    type: CLOSE_LOCATION_MODAL
   };
 };
 
