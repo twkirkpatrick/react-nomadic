@@ -22,6 +22,20 @@ export const getLocations = () => async (dispatch) => {
   }
 };
 
+export const addLocation = (location) => async (dispatch) => {
+  try {
+    setLoading();
+    const res = await axios.post("/api/locations", location);
+
+    dispatch({
+      type: ADD_LOCATION,
+      payload: res.data
+    });
+  } catch (err) {
+    console.error("something went wrong");
+  }
+};
+
 export const setCurrent = (location) => {
   return {
     type: SET_CURRENT,

@@ -1,32 +1,32 @@
 import React from "react";
-import { Modal } from "react-bootstrap";
+import AddLocationForm from "./AddLocationForm";
+import { Modal, Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { closeLocationModal } from "../../redux/actions/locationActions";
 
-const AddLocationModal = (props) => {
+const AddLocationModal = ({ locationModalOpen, closeLocationModal }) => {
   return (
     <Modal
-      {...props}
+      show={locationModalOpen}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      /* className="text-center" */
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
+      <Modal.Header>
+        <Modal.Title>Add a New Location</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <AddLocationForm />
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
     </Modal>
   );
 };
 
-export default AddLocationModal;
+const mapStateToProps = (state) => ({
+  locationModalOpen: state.location.locationModalOpen
+});
+
+export default connect(mapStateToProps, { closeLocationModal })(
+  AddLocationModal
+);
