@@ -2,9 +2,17 @@
   border-radius: 70%;
 }
 
+.location-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3;
+}
+
 .map {
   width: 75vw;
   height: 100vh;
+  position: relative;
 }
 
 .location-icon {

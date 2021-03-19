@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 const LocationField = ({ current }) => {
+  console.log(current);
   if (current) {
     return (
       <div
@@ -11,7 +12,16 @@ const LocationField = ({ current }) => {
           textAlign: "center"
         }}
       >
-        {current.city}, {current.state}
+        <h2>
+          {current.city}, {current.state}
+        </h2>
+
+        {current.visits.map((visit) => (
+          <>
+            <p>Summary: {visit.summary}</p>
+            <p>Nomads: {visit.nomads}</p>
+          </>
+        ))}
       </div>
     );
   } else {

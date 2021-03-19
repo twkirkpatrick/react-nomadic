@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { setCurrent } from "../../redux/actions/locationActions";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
+import AddLocationBtn from "./AddLocationBtn";
 
 const Map = ({ center, zoom, location: { locations }, setCurrent }) => {
   const markers = locations.map((location) => (
@@ -15,6 +16,7 @@ const Map = ({ center, zoom, location: { locations }, setCurrent }) => {
 
   return (
     <div className="map">
+      <AddLocationBtn />
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAP_API_KEY }}
         defaultCenter={center}
